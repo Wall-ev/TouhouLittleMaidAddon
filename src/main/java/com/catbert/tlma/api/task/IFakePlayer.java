@@ -37,7 +37,6 @@ public interface IFakePlayer {
 
     default void maidRightClick(EntityMaid maid, BlockPos targetPos, InteractionHand hand) {
         try {
-            LOGGER.info("FakePlayerUtil.interactUseOnBlock ");
             InteractionResult interactionResult = interactUseOnBlock(maid, targetPos, hand, null);
             if (interactionResult == InteractionResult.PASS) {
                 BlockState blockState = maid.level().getBlockState(targetPos);
@@ -46,7 +45,6 @@ public interface IFakePlayer {
                 blackList.add(block);
                 LOGGER.warn(blackList.toString());
             }
-            LOGGER.info("FakePlayerUtil.interactUseOnBlock result: " + interactionResult);
         }catch (Exception e) {
             LOGGER.error("FakePlayerUtil.interactUseOnBlock error: " + e);
         }

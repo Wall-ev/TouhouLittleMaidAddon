@@ -41,14 +41,11 @@ public class TaskBerryFarm implements ICompatFarm<BerryHandler>, IFakePlayer {
 
     @Override
     public boolean canHarvest(EntityMaid maid, BlockPos cropPos, BlockState cropState, BerryHandler handler) {
-        LOGGER.info("TaskBerriesFarm cropState: " + cropState);
-
         return handler.canHarvest(maid, cropPos, cropState);
     }
 
     @Override
     public void harvest(EntityMaid maid, BlockPos cropPos, BlockState cropState, BerryHandler handler) {
-        LOGGER.info("TaskBerriesFarm start harvestWithoutDestroy " + cropState);
         this.maidRightClick(maid, cropPos);
     }
 
